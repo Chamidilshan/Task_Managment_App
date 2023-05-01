@@ -8,15 +8,34 @@ class DataController extends GetxController{
   bool get isLoading => _isLoading;
   List<dynamic> _myTasks = [];
   List<dynamic> get myTasks => _myTasks;
-  Future<void> getData() async{
+
+  Future<void> getData() async {
     _isLoading = true;
     Response response = await service.getData();
-    if(response.statusCode == 200){
+    print('tried');
+    if (response.statusCode == 200) {
       _myTasks = response.body;
       print('got data');
       update();
-    }else{
+    } else {
       print('didnt get data');
     }
   }
+
+  Future<void> postData(String task, String taskDetails) async {
+    _isLoading = true;
+    Response response = await service.postData({
+      "task": task,
+      "task_details": taskDetails
+    });
+    print('tried');
+    if (response.statusCode == 200) {
+      update();
+    } else {
+      print('didnt get data');
+    }
+  }
+
+
+
 }

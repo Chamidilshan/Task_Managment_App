@@ -4,6 +4,8 @@ import 'package:task_managment_app/constants/constants.dart';
 import 'package:task_managment_app/widgets/button_widget.dart';
 import 'package:task_managment_app/widgets/text_field_wdget.dart';
 
+import '../widgets/error_message_widget.dart';
+
 class AddTaskScreen extends StatelessWidget {
   const AddTaskScreen({Key? key}) : super(key: key);
 
@@ -11,6 +13,17 @@ class AddTaskScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     TextEditingController nameController = TextEditingController();
     TextEditingController detailsController = TextEditingController();
+
+    bool _dataValidation(){
+      if(nameController.text.trim()==''){
+        Message.taskErrorWarning('Task name', 'Task name is empty');
+        return false;
+      }else if(detailsController.text.trim() == ''){
+        Message.taskErrorWarning('Task details', 'Task details is empty');
+        return false;
+      }
+      return true;
+    }
     return Scaffold(
       body: Container(
         width: double.maxFinite,
@@ -57,10 +70,15 @@ class AddTaskScreen extends StatelessWidget {
                 SizedBox(
                   height: 20.0,
                 ),
-                ButtonWidget(
-                    backgroundColor: AppColors.mainColor,
-                    text: 'Add',
-                    textColor: Colors.white
+                GestureDetector(
+                  onTap: () {
+                    _dataValidation();
+                  },
+                  child: ButtonWidget(
+                      backgroundColor: AppColors.mainColor,
+                      text: 'Add',
+                      textColor: Colors.white
+                  ),
                 )
               ],
             ),
