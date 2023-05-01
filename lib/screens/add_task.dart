@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:task_managment_app/constants/constants.dart';
 import 'package:task_managment_app/widgets/button_widget.dart';
 import 'package:task_managment_app/widgets/text_field_wdget.dart';
@@ -30,9 +31,11 @@ class AddTaskScreen extends StatelessWidget {
                 SizedBox(
                   height: 20.0,
                 ),
-                IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.arrow_back, color: AppColors.secondaryColor,)
+                InkWell(
+                  onTap: (){
+                    Get.back();
+                  },
+                  child: Icon(Icons.arrow_back, color: AppColors.secondaryColor,),
                 )
               ],
             ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:task_managment_app/constants/constants.dart';
 import 'package:task_managment_app/widgets/button_widget.dart';
 import 'package:task_managment_app/widgets/task_widget.dart';
@@ -37,7 +38,15 @@ class AllTasksScreen extends StatelessWidget {
                 fit: BoxFit.cover
               )
             ),
-            child: Icon(Icons.arrow_back, color: AppColors.secondaryColor,),
+            child: InkWell(
+              onTap: () {
+                Get.back();
+              },
+                child: Icon(
+                  Icons.arrow_back,
+                  color: AppColors.secondaryColor,
+                )
+            ),
           ),
           Container(
             padding: EdgeInsets.only(left: 20.0, right: 20.0),
