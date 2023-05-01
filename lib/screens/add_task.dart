@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_managment_app/constants/constants.dart';
+import 'package:task_managment_app/controllers/data_controller.dart';
+import 'package:task_managment_app/screens/all_tasks.dart';
 import 'package:task_managment_app/widgets/button_widget.dart';
 import 'package:task_managment_app/widgets/text_field_wdget.dart';
 
@@ -72,7 +74,16 @@ class AddTaskScreen extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    _dataValidation();
+                    if(_dataValidation()){
+                      Get.find<DataController>().postData(
+                        nameController.text.trim(),
+                        detailsController.text.trim()
+                      );
+                      Get.to(
+                              ()=>AllTasksScreen(),
+                        transition: Transition.circularReveal
+                      );
+                    }
                   },
                   child: ButtonWidget(
                       backgroundColor: AppColors.mainColor,
