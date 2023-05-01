@@ -13,7 +13,7 @@ class TaskWidget extends StatelessWidget {
       child: Center(child: Text(text, style: TextStyle(color: color ),)),
       decoration: BoxDecoration(
         color: Color(0xFFedf0f8),
-        borderRadius: BorderRadius.circular(10.0)
+        borderRadius: BorderRadius.circular(0)
       ),
     );
   }
