@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             InkWell(
               onTap: () {
-                Get.to(()=> AllTasksScreen(),
+                Get.to(()=>AllTasksScreen(),
                   transition: Transition.fade,
                   duration: Duration(seconds: 1)
                 );
