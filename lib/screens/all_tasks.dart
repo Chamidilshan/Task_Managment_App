@@ -4,12 +4,17 @@ import 'package:task_managment_app/constants/constants.dart';
 import 'package:task_managment_app/widgets/button_widget.dart';
 import 'package:task_managment_app/widgets/task_widget.dart';
 
-class AllTasksScreen extends StatelessWidget {
+class AllTasksScreen extends  StatefulWidget {
   const AllTasksScreen({Key? key}) : super(key: key);
 
   @override
+  State<AllTasksScreen> createState() => _AllTasksScreenState();
+}
+
+class _AllTasksScreenState extends State<AllTasksScreen> {
+  @override
   Widget build(BuildContext context) {
-    List myTasks = ['Try harder', 'Try Smarter'];
+    List myTasks = ['Make a app', 'Learn go language as backend'];
     final leftEditIcon = Container(
       child: Icon(Icons.edit, color: Colors.white,),
       margin: EdgeInsets.only(bottom: 10.0),

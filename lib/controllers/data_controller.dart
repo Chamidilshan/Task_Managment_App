@@ -15,6 +15,8 @@ class DataController extends GetxController{
     print('tried');
     if (response.statusCode == 200) {
       _myTasks = response.body;
+      //(_myTasks);
+      print(myTasks);
       print('got data');
       update();
     } else {
